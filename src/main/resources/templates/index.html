@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="eng">
+<head>
+    <title>Online calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Calculator</h1>
+    <form action="#" th:action="@{/}" th:object="${expression}" th:method="post">
+        <h3>Калькулятор поддерживает операции сложения (5 + 5), вычитания (5 - 7), умножения (5 * 5), деления (10 / 3),
+            возведения в степень (pow(2, 2)), извлечения квадратного корня (sqrt(144)), нахождения синуса (sin(45)) и
+            косинуса (cos(45)).
+        </h3>
+        <p>Expression: <label>
+            <input type="text" th:field="*{content}" />
+        </label></p>
+        <p><input type="submit" value="Calculate" /></p>
+        <h2>Result: </h2>
+        <p th:text="${result}" />
+        <span th:if="${errorMessage}"  th:text="${errorMessage}">Error</span>
+    </form>
+</body>
+</html>
+
